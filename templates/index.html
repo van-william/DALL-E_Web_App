@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+  <title>Image Generator!</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='Robot logo.svg') }}"
+  />
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <img src="{{ url_for('static', filename='Robot Coffee.png') }}" class="image" />
+  <h3>Image Generator</h3>
+  <form action="/" method="post">
+    <input type="text" name="image_prompt" placeholder="Enter Image Prompt" required />
+    <input type="submit" value="Generate Image" />
+  </form>
+
+  <br>
+  <br>
+  {% if image_url %}
+  <div>
+    <img src="{{ image_url }}" alt="DALL-E Output">
+  </div>
+  {% endif %}
+
+</body>
